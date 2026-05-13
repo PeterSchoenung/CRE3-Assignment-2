@@ -1,0 +1,9 @@
+compound,formula,nist_id,temp_low_K,temp_high_K,A,B,C,D,E,F,G,H,deltaHf_298_K_J_mol,source
+CO2,CO2,C124389,298,1200,24.99735,55.18696,-33.69137,7.948387,-0.136638,-403.6075,228.2431,-393.5224,,"https://webbook.nist.gov/cgi/cbook.cgi?ID=C124389&Mask=1"
+CO,CO,C630080,298,1300,25.56759,6.096130,4.054656,-2.671301,0.131021,-118.0089,227.3665,-110.5271,,"https://webbook.nist.gov/cgi/cbook.cgi?ID=C630080&Mask=1"
+H2,H2,C1333740,298,1000,33.066178,-11.363417,11.432816,-2.772874,-0.158558,-9.980797,172.707974,0.0,,"https://webbook.nist.gov/cgi/cbook.cgi?ID=C1333740&Units=SI&Mask=1#Thermo-Gas"
+H2,H2,C1333740,1000,2500,18.563083,12.257357,-2.859786,0.268238,1.977990,-1.147438,156.288133,0.0,,"https://webbook.nist.gov/cgi/cbook.cgi?ID=C1333740&Units=SI&Mask=1#Thermo-Gas"
+H2,H2,C1333740,2500,6000,43.413560,-4.293079,1.272428,-0.096876,-20.533862,-38.515158,162.081354,0.0,,"https://webbook.nist.gov/cgi/cbook.cgi?ID=C1333740&Units=SI&Mask=1#Thermo-Gas"
+H2O,H2O,C7732185,500,1700,30.09200,6.832514,6.793435,-2.534480,0.082139,-250.8810,223.3967,-241.8264,,"https://webbook.nist.gov/cgi/cbook.cgi?ID=C7732185&Mask=1"
+CH3OH,CH4O,C67561,,,,,,,,,,,,,"https://webbook.nist.gov/cgi/cbook.cgi?ID=C67561&Mask=1F"
+CH3OCH3,C2H6O,C115106,,,,,,,,,,,,,"https://webbook.nist.gov/cgi/cbook.cgi?ID=C115106&Mask=200"
