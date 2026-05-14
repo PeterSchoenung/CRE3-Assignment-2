@@ -1,180 +1,146 @@
-{
- "cells": [
-  {
-   "cell_type": "markdown",
-   "metadata": {},
-   "source": [
-    "# Direct synthesis of dimethyl ether from synthesis gas\n",
-    "\n",
-    "Source: *Direct synthesis of dimethyl ether from synthesis gas: Experimental study and mathematical modeling* (Chemical Engineering Journal, 2017, DOI: 10.1016/j.cej.2017.04.132) [web:13].\n",
-    "\n",
-    "This notebook summarizes only information explicitly available from the paper abstract and searchable metadata [web:13]."
-   ]
-  },
-  {
-   "cell_type": "markdown",
-   "metadata": {},
-   "source": [
-    "## Reaction system\n",
-    "\n",
-    "The paper studies direct DME synthesis from syngas using a bifunctional catalyst system [web:13].\n",
-    "\n",
-    "1. Methanol synthesis: `CO + 2H2 <-> CH3OH`\n",
-    "2. Methanol dehydration: `2CH3OH <-> CH3OCH3 + H2O`\n",
-    "3. Overall: `2CO + 4H2 <-> CH3OCH3 + H2O`\n",
-    "\n",
-    "The paper reports thermodynamic analysis over **10–100 bar**, **220–280 °C**, and **H2/CO = 1–6** [web:13]."
-   ]
-  },
-  {
-   "cell_type": "markdown",
-   "metadata": {},
-   "source": [
-    "## Optimal reaction conditions\n",
-    "\n",
-    "For loading variant **2:1:2**, the paper reports the following optimal conditions [web:13]:\n",
-    "\n",
-    "| Parameter | Value |\n",
-    "|---|---:|\n",
-    "| Pressure | 30 bar |\n",
-    "| Temperature | 280 °C |\n",
-    "| Initial H2/CO ratio | 2 |\n",
-    "| Catalyst loading variant | 2:1:2 |\n",
-    "\n",
-    "The paper also states that CO conversion remains practically constant during a 180 h run under these conditions [web:13]."
-   ]
-  },
-  {
-   "cell_type": "code",
-   "execution_count": null,
-   "metadata": {},
-   "outputs": [],
-   "source": [
-    "from dataclasses import dataclass\n",
-    "\n",
-    "@dataclass\n",
-    "class ConditionSet:\n",
-    "    pressure_bar: float\n",
-    "    temperature_c: float\n",
-    "    h2_co_ratio: float\n",
-    "    loading_variant: str\n",
-    "\n",
-    "optimal = ConditionSet(pressure_bar=30, temperature_c=280, h2_co_ratio=2, loading_variant='2:1:2')\n",
-    "optimal"
-   ]
-  },
-  {
-   "cell_type": "markdown",
-   "metadata": {},
-   "source": [
-    "## Reaction depiction\n",
-    "\n",
-    "The scheme below depicts the two-step direct DME synthesis route used in the paper [web:13]."
-   ]
-  },
-  {
-   "cell_type": "code",
-   "execution_count": null,
-   "metadata": {},
-   "outputs": [],
-   "source": [
-    "import matplotlib.pyplot as plt\n",
-    "\n",
-    "fig, ax = plt.subplots(figsize=(12, 3))\n",
-    "ax.axis('off')\n",
-    "\n",
-    "text = (\n",
-    "    r'$CO + 2H_2 \\leftrightarrow CH_3OH$' '\\n'\n",
-    "    r'$2CH_3OH \\leftrightarrow CH_3OCH_3 + H_2O$' '\\n'\n",
-    "    r'Overall: $2CO + 4H_2 \\leftrightarrow CH_3OCH_3 + H_2O$'\n",
-    ")\n",
-    "\n",
-    "ax.text(0.02, 0.5, text, fontsize=16, va='center')\n",
-    "fig.tight_layout()\n",
-    "plt.show()\n",
-    "\n",
-    "fig.savefig('reaction_depiction.png', dpi=200, bbox_inches='tight')"
-   ]
-  },
-  {
-   "cell_type": "markdown",
-   "metadata": {},
-   "source": [
-    "## Equilibrium constants\n",
-    "\n",
-    "The abstract says that thermodynamic analysis was carried out and that the equilibrium content of components was modeled, but it does not report numerical equilibrium constants [web:13].\n",
-    "\n",
-    "Use the table below as a placeholder if you later extract the constants from the full paper."
-   ]
-  },
-  {
-   "cell_type": "code",
-   "execution_count": null,
-   "metadata": {},
-   "outputs": [],
-   "source": [
-    "import pandas as pd\n",
-    "\n",
-    "eq_constants = pd.DataFrame([\n",
-    "    {'reaction': 'CO + 2H2 <-> CH3OH', 'equilibrium_constant': None},\n",
-    "    {'reaction': '2CH3OH <-> CH3OCH3 + H2O', 'equilibrium_constant': None},\n",
-    "    {'reaction': 'Overall: 2CO + 4H2 <-> CH3OCH3 + H2O', 'equilibrium_constant': None},\n",
-    "])\n",
-    "\n",
-    "eq_constants"
-   ]
-  },
-  {
-   "cell_type": "markdown",
-   "metadata": {},
-   "source": [
-    "## Equilibrium molar fractions\n",
-    "\n",
-    "The abstract does not provide the numerical equilibrium molar fractions either, so these are also left as placeholders [web:13].\n",
-    "\n",
-    "You can fill this table only after extracting the full equilibrium calculations from the full article."
-   ]
-  },
-  {
-   "cell_type": "code",
-   "execution_count": null,
-   "metadata": {},
-   "outputs": [],
-   "source": [
-    "eq_molar_fractions = pd.DataFrame([\n",
-    "    {'component': 'CO', 'equilibrium_molar_fraction': None},\n",
-    "    {'component': 'H2', 'equilibrium_molar_fraction': None},\n",
-    "    {'component': 'CH3OH', 'equilibrium_molar_fraction': None},\n",
-    "    {'component': 'CH3OCH3', 'equilibrium_molar_fraction': None},\n",
-    "    {'component': 'H2O', 'equilibrium_molar_fraction': None},\n",
-    "])\n",
-    "\n",
-    "eq_molar_fractions"
-   ]
-  },
-  {
-   "cell_type": "markdown",
-   "metadata": {},
-   "source": [
-    "## Source citation\n",
-    "\n",
-    "- *Direct synthesis of dimethyl ether from synthesis gas: Experimental study and mathematical modeling*, Chemical Engineering Journal, 2017, DOI: [10.1016/j.cej.2017.04.132](https://doi.org/10.1016/j.cej.2017.04.132) [web:13].\n",
-    "\n",
-    "This notebook intentionally uses only information visible in the paper abstract and metadata [web:13]."
-   ]
-  }
- ],
- "metadata": {
-  "kernelspec": {
-   "display_name": "Python 3",
-   "language": "python",
-   "name": "python3"
-  },
-  "language_info": {
-   "name": "python",
-   "version": "3.x"
-  }
- },
- "nbformat": 4,
- "nbformat_minor": 5
+import nbformat as nbf
+from pathlib import Path
+
+nb = nbf.v4.new_notebook()
+cells = []
+
+cells.append(nbf.v4.new_markdown_cell(
+"""# Direct synthesis of dimethyl ether from synthesis gas
+
+Source: *Direct synthesis of dimethyl ether from synthesis gas: Experimental study and mathematical modeling* (Chemical Engineering Journal, 2017, DOI: 10.1016/j.cej.2017.04.132) [web:13].
+
+This notebook summarizes only information explicitly available from the paper abstract and searchable metadata [web:13]."""
+))
+
+cells.append(nbf.v4.new_markdown_cell(
+"""## Reaction system
+
+The paper studies direct DME synthesis from syngas using a bifunctional catalyst system [web:13].
+
+1. Methanol synthesis: `CO + 2H2 <-> CH3OH`
+2. Methanol dehydration: `2CH3OH <-> CH3OCH3 + H2O`
+3. Overall: `2CO + 4H2 <-> CH3OCH3 + H2O`
+
+The paper reports thermodynamic analysis over **10–100 bar**, **220–280 °C**, and **H2/CO = 1–6** [web:13]."""
+))
+
+cells.append(nbf.v4.new_markdown_cell(
+"""## Optimal reaction conditions
+
+For loading variant **2:1:2**, the paper reports the following optimal conditions [web:13]:
+
+| Parameter | Value |
+|---|---:|
+| Pressure | 30 bar |
+| Temperature | 280 °C |
+| Initial H2/CO ratio | 2 |
+| Catalyst loading variant | 2:1:2 |
+
+The paper also states that CO conversion remains practically constant during a 180 h run under these conditions [web:13]."""
+))
+
+cells.append(nbf.v4.new_code_cell(
+"""from dataclasses import dataclass
+
+@dataclass
+class ConditionSet:
+    pressure_bar: float
+    temperature_c: float
+    h2_co_ratio: float
+    loading_variant: str
+
+optimal = ConditionSet(pressure_bar=30, temperature_c=280, h2_co_ratio=2, loading_variant='2:1:2')
+optimal"""
+))
+
+cells.append(nbf.v4.new_markdown_cell(
+"""## Reaction depiction
+
+The scheme below depicts the two-step direct DME synthesis route used in the paper [web:13]."""
+))
+
+cells.append(nbf.v4.new_code_cell(
+"""import matplotlib.pyplot as plt
+
+fig, ax = plt.subplots(figsize=(12, 3))
+ax.axis('off')
+
+text = (
+    r'$CO + 2H_2 \\leftrightarrow CH_3OH$' '\\n'
+    r'$2CH_3OH \\leftrightarrow CH_3OCH_3 + H_2O$' '\\n'
+    r'Overall: $2CO + 4H_2 \\leftrightarrow CH_3OCH_3 + H_2O$'
+)
+
+ax.text(0.02, 0.5, text, fontsize=16, va='center')
+fig.tight_layout()
+plt.show()
+
+fig.savefig('reaction_depiction.png', dpi=200, bbox_inches='tight')"""
+))
+
+cells.append(nbf.v4.new_markdown_cell(
+"""## Equilibrium constants
+
+The abstract says that thermodynamic analysis was carried out and that the equilibrium content of components was modeled, but it does not report numerical equilibrium constants [web:13].
+
+Use the table below as a placeholder if you later extract the constants from the full paper."""
+))
+
+cells.append(nbf.v4.new_code_cell(
+"""import pandas as pd
+
+eq_constants = pd.DataFrame([
+    {'reaction': 'CO + 2H2 <-> CH3OH', 'equilibrium_constant': None},
+    {'reaction': '2CH3OH <-> CH3OCH3 + H2O', 'equilibrium_constant': None},
+    {'reaction': 'Overall: 2CO + 4H2 <-> CH3OCH3 + H2O', 'equilibrium_constant': None},
+])
+
+eq_constants"""
+))
+
+cells.append(nbf.v4.new_markdown_cell(
+"""## Equilibrium molar fractions
+
+The abstract does not provide the numerical equilibrium molar fractions either, so these are also left as placeholders [web:13].
+
+You can fill this table only after extracting the full equilibrium calculations from the full article."""
+))
+
+cells.append(nbf.v4.new_code_cell(
+"""eq_molar_fractions = pd.DataFrame([
+    {'component': 'CO', 'equilibrium_molar_fraction': None},
+    {'component': 'H2', 'equilibrium_molar_fraction': None},
+    {'component': 'CH3OH', 'equilibrium_molar_fraction': None},
+    {'component': 'CH3OCH3', 'equilibrium_molar_fraction': None},
+    {'component': 'H2O', 'equilibrium_molar_fraction': None},
+])
+
+eq_molar_fractions"""
+))
+
+cells.append(nbf.v4.new_markdown_cell(
+"""## Source citation
+
+- *Direct synthesis of dimethyl ether from synthesis gas: Experimental study and mathematical modeling*, Chemical Engineering Journal, 2017, DOI: [10.1016/j.cej.2017.04.132](https://doi.org/10.1016/j.cej.2017.04.132) [web:13].
+
+This notebook intentionally uses only information visible in the paper abstract and metadata [web:13]."""
+))
+
+nb['cells'] = cells
+nb['metadata'] = {
+    "kernelspec": {
+        "display_name": "Python 3",
+        "language": "python",
+        "name": "python3"
+    },
+    "language_info": {
+        "name": "python",
+        "version": "3.x"
+    }
 }
+
+out = Path("dme_conditions_notebook.ipynb")
+with out.open("w", encoding="utf-8") as f:
+    nbf.write(nb, f)
+
+print(f"Wrote {out.resolve()}")
