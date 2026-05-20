@@ -218,3 +218,5 @@ __marimo__/
 .streamlit/secrets.toml
 data_literature/JANAF-FourthEd-1998-1Vol1.pdf
 data_literature/JANAF-FourthEd-1998-1Vol1-Intro.pdf
+data_literature/chemical-equilibria-in-methanol-synthesis-including-the-water-gas-shift-reaction-a-critical-reassessment.pdf
+data_literature/thermodynamic-equilibrium-constants-for-the-methanol-dimethyl-ether-water-system.pdf
