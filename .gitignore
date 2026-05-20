@@ -216,3 +216,5 @@ __marimo__/
 
 # Streamlit
 .streamlit/secrets.toml
+data_literature/JANAF-FourthEd-1998-1Vol1.pdf
+data_literature/JANAF-FourthEd-1998-1Vol1-Intro.pdf
